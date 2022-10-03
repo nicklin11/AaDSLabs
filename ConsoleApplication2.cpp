@@ -91,7 +91,8 @@ public:
 
 int main(int argc, char* argv[])
 {
-
+    DynamicArrayStack <char> stackOne;
+    stackOne.printStack();
 }
 
 
