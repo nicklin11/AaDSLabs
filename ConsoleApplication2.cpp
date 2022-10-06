@@ -1,4 +1,7 @@
 ﻿#include <iostream>
+#include <string>
+#include <cctype>
+#define ""
 using namespace std;
 
 template<typename T>
@@ -13,12 +16,14 @@ public:
     DynamicArrayStack()
     {
         stack = nullptr;
+        dummy = nullptr;
         max = 0;
         top = -1;
     }
     ~DynamicArrayStack()
     {
         delete[] stack;
+        delete[] dummy;
     }
     void pushStack(T value)
     {
@@ -88,13 +93,28 @@ public:
     }
 };
 
+void rearrangeExpression(string &inBuff, string &outBuff, DynamicArrayStack <char> &stck)
+{
+    for (int i = 0; i < inBuff.length(); i++)
+    {
+        char c = inBuff[i];
+        if (isdigit(c) == true)
+        {
+            outBuff += c;
+        }
+        else
+        {
+            stck.pushStack(c);
+        }
+    }
+}
 
 int main(int argc, char* argv[])
 {
     DynamicArrayStack <char> stackOne;
     stackOne.printStack();
-    //sga asgasg asgfasgasggagsags
+    stackOne.pushStack('+');
+    stackOne.printStack();
+    
 }
-
-
 ;
